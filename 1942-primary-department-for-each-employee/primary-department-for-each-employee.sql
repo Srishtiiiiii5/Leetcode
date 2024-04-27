@@ -1,0 +1,18 @@
+-- # Write your MySQL query statement below
+-- select employee_id , department_id
+-- from (
+--     select employee_id, department_id, primary_flag, count(*) as count
+--     from Employee
+--     group by employee_id
+-- ) AS subquery
+-- where count=1 or primary_flag='Y';
+
+SELECT employee_id, department_id
+FROM Employee 
+WHERE primary_flag = 'Y'
+UNION
+SELECT employee_id, department_id
+FROM Employee 
+GROUP BY employee_id
+HAVING COUNT(employee_id) = 1
+ORDER BY employee_id;
