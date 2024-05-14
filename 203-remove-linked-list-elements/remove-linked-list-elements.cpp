@@ -26,27 +26,26 @@ public:
         if(head==NULL)
             return head;
         
-        while( head && head->val==val){
-            q=head;
+        while( head && head->val == val){
+            ListNode* temp= head;
             head=head->next;
+            delete(temp);
        
         }
-        if(q==NULL)
-            return q;
         
         p=head;
         q=head;
         
-        while(p && q){
+        while(p){
             if(p->val != val){
                 q=p;
                 p=p->next;
             }
             else if(p->val == val){
-                //ListNode* temp = p;
                 q->next=p->next;
-                p=p->next;    
-                //delete(temp);
+                delete(p);
+                p= q->next;
+                
             }
         }
         return head;
