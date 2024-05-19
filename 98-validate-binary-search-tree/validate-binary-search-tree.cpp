@@ -5,7 +5,9 @@ public:
         if(root==NULL) return true;
 
         if(root->val > min && root->val < max){
-            return ischeck(root->left, min, root->val) && ischeck(root->right, root->val, max);
+            bool left = ischeck(root->left, min, root->val);
+            bool right = ischeck(root->right, root->val, max);
+            return left && right;
         }
         else{
             return false;
