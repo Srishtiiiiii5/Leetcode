@@ -13,7 +13,6 @@ class Solution {
 public:
 
     void solve(TreeNode* root, int sum, int& target){
-        int temp = sum;
         sum = sum*10+root->val;
         if(root->left == NULL && root->right==NULL){
             target += sum;   
