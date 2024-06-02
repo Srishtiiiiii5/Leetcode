@@ -2,7 +2,7 @@ class Solution {
 public:
     int dp[101][101];
     bool isValid(int i, int j, int n){
-        return ((i >= 0 && i < n) && (j >= 0 && j < n));
+        return (i >= 0 && i < n && j >= 0 && j < n);
     }
 
     int helper(int i, int j, int n, vector<vector<int>>& mat){
