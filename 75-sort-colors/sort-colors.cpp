@@ -1,25 +1,36 @@
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
-        
-        int s = 0, m = 0, e = nums.size()-1;
-        while(m<=e){
-            if(nums[m] == 0){ 
-                swap(nums[s++],nums[m++]);
+        int z=0;
+        int o=0;
+        int t=0;
+        for(int i=0; i<nums.size();i++){
+            if(nums[i]==0){
+                z++;
             }
-            else if (nums[m] == 1){ 
-                m++;
+            else if(nums[i]==1){
+                o++;
             }
-            else{ 
-                swap(nums[m],nums[e]);
-                e--;
+            else{
+                t++;
             }
         }
-  
-/*m se 1 ko track kar rahe hai
-agar m par 0 aaya toh s se swap
-m pe 1 aaya toh just increase
-m pe 2 aaya toh e se swapp
-*/
-}
+        int i=0;
+        while(z){
+            nums[i]=0;
+            i++;
+            z--;
+        }
+        while(o){
+            nums[i]=1;
+            i++;
+            o--;
+        }
+        while(t){
+            nums[i]=2;
+            i++;
+            t--;
+        }
+
+    }
 };
