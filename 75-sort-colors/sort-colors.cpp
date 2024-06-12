@@ -16,6 +16,10 @@ public:
             }
         }
   
-  
+/*m se 1 ko track kar rahe hai
+agar m par 0 aaya toh s se swap
+m pe 1 aaya toh just increase
+m pe 2 aaya toh e se swapp
+*/
 }
 };
