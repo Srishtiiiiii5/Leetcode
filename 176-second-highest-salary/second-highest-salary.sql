@@ -1,7 +1,8 @@
 # Write your MySQL query statement below
-select max(salary) as SecondHighestSalary
+select IFNULL(max(salary), null) as SecondHighestSalary
 from Employee
-where salary!= (
+where salary not in (
     select max(salary)
     from Employee
+
 )
