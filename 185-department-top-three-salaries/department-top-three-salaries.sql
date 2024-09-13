@@ -1,7 +1,25 @@
+
 # Write your MySQL query statement below
-Select d.name as department , e1.name as employee, e1.salary as Salary
-From Employee e1 join Department d on e1.DepartmentId = d.Id
-Where  3 > (select count(distinct (e2.Salary))
-            from  Employee e2
-            where e2.Salary > e1.Salary
-            and e1.DepartmentId = e2.DepartmentId)
+
+-- select d.name as Department, e.name as Employee , e.salary as Salary
+-- from Employee e join Department d on e.DepartmentId = d.Id
+-- where e.salary in (
+--     select distinct top 3 salary
+--     from employee e2
+--     where e2.departmentId = d.id
+--     order by salary desc
+-- )
+
+select d.name as Department, e.name as Employee , e.salary as Salary
+from Employee e join Department d on e.DepartmentId = d.Id
+where 3> (
+    select count(distinct(e1.salary))
+    from employee e1
+    where e1.salary > e.salary
+    and e.departmentId = e1.departmentId 
+)
+
+
+
+
+
