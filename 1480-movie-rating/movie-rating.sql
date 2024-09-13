@@ -3,7 +3,7 @@
 (select name as results
 from users inner join MovieRating using(user_id)
 group by user_id
-order by count(rating) desc, name asc
+order by count(movie_id) desc, name asc
 limit 1
 )
 
